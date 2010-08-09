@@ -1,9 +1,15 @@
-<html>
-<head>
-<title>Lambdebug: Take a step back</title>
-</head>
-<body>
-  <p>A stepping debugger for the Clojure REPL</p>
-  <p>... soon to become a fancier site</p>
-</body>
-</html>
+---
+layout: default
+title: Lambdebug, clojure step by step, back and forth
+---
+<p>Hi, my name is Lambdebug.  I can show you how a Clojure program is
+executed step by step.  With a little trick I've learned from
+Einstein, I can even travel back in time, and show you the steps
+backwards.</p>
+<p>It's easy to meet me.  Just say these sentences to the REPL,
+{% highlight clojure %}
+(use 'lambdebug)
+(debug '(str "Hello," "Lambdebug"))
+{% endhighlight %}
+
+<p><i>... soon to become a fancier site</i></p>
