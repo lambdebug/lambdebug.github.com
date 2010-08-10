@@ -9,33 +9,48 @@ executed step by step.  With a little trick I've learned from
 Einstein, I can even travel back in time, and show you the steps
 backwards.
 
-It's easy to meet me.  Ask Mr Leiningen to get mi from clojars.
+It's easy to meet me.  Ask Mr Leiningen to get me from clojars.
 Then just say these sentences to the REPL,
 
-{% highlight clojure %}
-(use 'lambdebug)
-(debug '(+ 1 2))
-{% endhighlight %}
+<div class='repl'><pre><code>
+=> (use 'lambdebug)
+=> (debug '(+ 1 2))
+</code></pre></div>
 
 And voilá, you're right in the middle of my world.
-{% highlight clojure %}
-"(+ 1 2)"
->>>
-{% endhighlight %}
 
-You can step into this complicated expression and learn that `+` is
+<div class='repl'><pre><code>
+Function: Given at REPL
+Form: "<span class='hl'>(+ 1 2)</span>"
+>>>
+</code></pre></div>
+
+Note the highlight.
+You can step into this complicated expression typing `i`, and learn that `+` is
 actually `clojure.core/+`, and `(+ 1 2)` equals to `3`.
 
+<div class='repl'><pre><code>
+Function: Given at REPL
+Form: "<span class='hl'>(+ 1 2)</span>"
+>>> i
+
+Function: Given at REPL
+Form: ("<span class='hl'>+</span>" 1 2)
+Result: #'clojure.core/+
+>>>
+</code></pre></div>
+
 I can do more sophisticated things.  Try a bit contrived example,
-{% highlight clojure %}
->>> (debug
+
+<div class='repl'><pre><code>
+=> (debug
       '((fn [x]
           (let [y (dec x)]
             (try
               (+ (/ 1 y) 5)
               (catch ArithmeticException e (inc x)))))
         10))
-{% endhighlight %}
+</code></pre></div>
 
 There are more things to notice here.  When stepping into it,
 you'll get the result of `(dec x)` within the let expression, then the
@@ -59,10 +74,11 @@ functions.
 {% endhighlight %}
 No problem, I will follow you into any function defined in a file (with
 the exception of the `clojure` namespace),
-{% highlight clojure %}
->>> (use 'nifty)
->>> (debug '(count-both [42] (duplicate [42])))
-{% endhighlight %}
+
+<div class='repl'><pre><code>
+=> (use 'nifty)
+=> (debug '(count-both [42] (duplicate [42])))
+</code></pre></div>
 
 # I am not perfect
 
@@ -75,3 +91,5 @@ My limitations are,
   notation, but no `proxy`, `doto`, etc, please.
 
 *... soon to become a fancier site*
+
+*... download url also available as soon as the code gets mature enough*
