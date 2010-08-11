@@ -9,7 +9,9 @@ executed step by step.  With a little trick I've learned from
 Einstein, I can even travel back in time, and show you the steps
 backwards.
 
-It's easy to meet me.  Ask Mr Leiningen to get me from clojars.
+It's easy to meet me.  Ask Mr Leiningen to get me from clojars
+(including `:dev-dependencies [[lambdebug "0.3.3"]]` in your
+`project.clj`)
 Then just say these sentences to the REPL,
 
 <div class='repl'><pre><code>
@@ -17,27 +19,24 @@ Then just say these sentences to the REPL,
 => (debug '(+ 1 2))
 </code></pre></div>
 
-And voilá, you're right in the middle of my world.
+And voilá, you're right in the middle of my world.  I even made the
+first step for you, you can see it highlighted.
 
 <div class='repl'><pre><code>
-Function: Given at REPL
-Form: "<span class='hl'>(+ 1 2)</span>"
->>>
-</code></pre></div>
-
-Note the highlight.
-You can step into this complicated expression typing `i`, and learn that `+` is
-actually `clojure.core/+`, and `(+ 1 2)` equals to `3`.
-
-<div class='repl'><pre><code>
-Function: Given at REPL
-Form: "<span class='hl'>(+ 1 2)</span>"
->>> i
-
 Function: Given at REPL
 Form: ("<span class='hl'>+</span>" 1 2)
 Result: #'clojure.core/+
 >>>
+</code></pre></div>
+
+You can step into this complicated expression typing `i`, and learn the
+value of each number, then finally that `(+ 1 2)` equals to `3`.
+If you type `h`, you'll see all the directions I can take you.
+
+<div class='repl'><pre><code>
+>>> h
+Help: choose
+    step (i)n, (n)ext, (b)ack, (p)rev, (o)ut
 </code></pre></div>
 
 I can do more sophisticated things.  Try a bit contrived example,
@@ -80,6 +79,10 @@ the exception of the `clojure` namespace),
 => (debug '(count-both [42] (duplicate [42])))
 </code></pre></div>
 
+In case you want to know more about me, I am an open source person,
+you can come and see me at
+<http://github.com/adamschmideg/lambdebug>
+
 # I am not perfect
 
 My limitations are,
@@ -89,7 +92,3 @@ My limitations are,
  * I am OK with most common macros, but not with trickier ones, like `binding`, `->`, `->>`.
  * I am quite picky about java interop.  I like simpler cases with dot
   notation, but no `proxy`, `doto`, etc, please.
-
-*... soon to become a fancier site*
-
-*... download url also available as soon as the code gets mature enough*
