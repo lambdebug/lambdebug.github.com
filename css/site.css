@@ -1,0 +1,16 @@
+#logo img {
+  width: 30%;
+  height: 25%;
+}
+.repl {
+  background: #202020;
+  color: #d0d0d0;
+  margin-left: 5%;
+  margin-right: 15%;
+}
+.repl .hl { color: #ffd700 } /* highlight */
+.repl span.hl:before { content: "<<< "}
+.repl span.hl:after { content: " >>>"}
+
+p code { background: #d0d0d0 }
+

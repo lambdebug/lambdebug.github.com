@@ -1,15 +1,3 @@
-.repl {
-  background: #202020;
-  color: #d0d0d0;
-  margin-left: 5%;
-  margin-right: 15%;
-}
-.repl .hl { color: #ffd700 } /* highlight */
-.repl span.hl:before { content: "<<< "}
-.repl span.hl:after { content: " >>>"}
-
-p code { background: #d0d0d0 }
-
 .highlight .hll { background-color: #404040 }
 .highlight  { background: #202020; color: #d0d0d0 }
 .highlight .c { color: #999999; font-style: italic } /* Comment */
