@@ -30,4 +30,4 @@ body {
 .repl span.hl:after { content: " >>>"}
 
 p code { background: #d0d0d0 }
-
+li code { background: #d0d0d0 }

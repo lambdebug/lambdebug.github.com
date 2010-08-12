@@ -43,18 +43,16 @@ I can do more sophisticated things.  Try a bit contrived example,
 
 <div class='repl'><pre><code>
 => (debug
-      '((fn [x]
-          (let [y (dec x)]
-            (try
-              (+ (/ 1 y) 5)
-              (catch ArithmeticException e (inc x)))))
-        10))
+      '(doseq [i [10 0]]
+         (try
+           (+ (/ 1 y) 2)
+           (catch ArithmeticException _ "oops"))))
 </code></pre></div>
 
-There are more things to notice here.  When stepping into it,
-you'll get the result of `(dec x)` within the let expression, then the
-value of `(+ (/ 1 y) 5)`.  If, however, you try `1` instead of `10`, you won't get
-to adding `5`, but you land in the catch block, evaluating `(inc x)`.
+When you first step through it, `i` is bound to `10`, and you'll get
+the value of `(+ (/ 1 10) 2)`.  On the secound round, an exception is
+thrown, so you won't get to adding `2`, but you land in the catch block,
+evaluating `"oops"`.
 
 I can see that you are not quite happy yet.  You have written some nifty
 functions.
@@ -92,3 +90,11 @@ My limitations are,
  * I am OK with most common macros, but not with trickier ones, like `binding`, `->`, `->>`.
  * I am quite picky about java interop.  I like simpler cases with dot
   notation, but no `proxy`, `doto`, etc, please.
+ * No outer binding at the REPL, like `(let [answer 42] ...)`.
+   It's OK to bind a variable within a function, like `(for [i (range
+   9)] ...)`, or even `(map #(* 2 %) ...)`.
+   It's also OK to have them in a function defined in a file.
+
+If you bump into a limitation, bug, annoyance not listed here, feel free
+let me know about it at
+<http://github.com/adamschmideg/lambdebug/issues>.
