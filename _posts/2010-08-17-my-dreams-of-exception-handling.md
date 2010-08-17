@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: My dreams of exception handling
 ---
 A short foreword about love and hate,

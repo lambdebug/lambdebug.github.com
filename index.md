@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Lambdebug, clojure step by step, back and forth
+menu: <a href='/blog/'>=&gt; Blog </a>
 ---
 # Introduction
 

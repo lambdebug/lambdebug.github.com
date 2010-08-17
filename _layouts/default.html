@@ -19,8 +19,10 @@
 </head>
 <body>
 <div id='logo'>
-  <img src='/img/lambdebug-logo.gif'/>
+  <a href='{{ site.url }}/'><img src='/img/lambdebug-logo.gif'/></a>
 </div>
+<div id='menu'>{{ page.menu }}</div>
+
 <div id='content'>
 {{ content }}
 </div>
