@@ -1,9 +1,65 @@
 ---
 layout: default
-title: No exceptions
-date: 2010/08/13
+title: Exceptions considered mostly harmless
 published: false
 ---
+# Introduction
+
+These are random thoughts about why I find exceptions an annoying,
+mostly harmless and useless way to solve problems it's trying to solve.
+I want to give you a typical example first and explore it later on.
+{% highlight java %}
+public interface PropertyStore {
+  boolean isAvailable();
+  String getProperty(String key) throws PropertyException;
+}
+
+public class FilePropertyStore implements PropertyStore {
+
+  public String getProperty(String key) throws PropertyException {
+    try {
+      // Read it from a file
+    }
+    catch (IOException e) {
+      throw new PropertyException("Cannot get key " + key, e);
+    }
+  }
+}
+
+public String getFavoriteColor() {
+  String color = "pink";
+  try {
+    color = propertyStore.getProperty("favorite.color");
+  }
+  catch (PropertyException pe) {
+    logger.error("Problem with favorite color ", pe);
+  }
+  return color;
+}
+{% endhighlight %}
+
+# Exceptions are not about error handling
+
+Well, exceptions are one of more constructs for error handling.
+The code above suggests it's an error not to be able to get my favorite
+color, and it smoothly handles it.  But there more approaches.
+{% highlight java %}
+public String getFavoriteColorUsingDefault() {
+  String color = propertyStore.getProperty("favorite.color");
+  if (color == null)
+    color = "pink";
+  return color;
+}
+
+public String getFavoriteColorCheckingAvailability() {
+  String color = "pink";
+  if (propertyStore.isAvailable())
+    color = propertyStore.getProperty("favorite.color");
+  return color;
+}
+{% endhighlight %}
+Would you say null values and conditionals are for error handling?
+
 # Beaten by averages
 
 Do you want your colleagues to check you every half an hour, asking if
