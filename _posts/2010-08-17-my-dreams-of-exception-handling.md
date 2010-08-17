@@ -3,7 +3,7 @@ layout: default
 title: My dreams of exception handling
 ---
 A short foreword about love and hate,
-{% hightlight clojure %}
+{% highlight clojure %}
 => (first []) ; I love it
 nil
 => (nth [] 0) ; I hate it
@@ -22,7 +22,7 @@ stacktraces say almost nothing about the nested contexts along the call
 chain leading to the exception.
 
 Here is what I dream of
-{% hightlight clojure %}
+{% highlight clojure %}
 => (reproduce-contexts (call-something-nasty 666))
 ('(call-something-nasty 666)
  '(one-level-deeper-function 666 nil)
@@ -39,7 +39,7 @@ with a try-catch block.  It's just a rough idea, but hey, I am dreaming.
 # Dream 2, throwing exceptions disabled by default
 
 I think, an exception is just another way to write an assertion.
-{% hightlight clojure %}
+{% highlight clojure %}
 (defn average-with-exception
   [xs]
   (if (seq xs)
