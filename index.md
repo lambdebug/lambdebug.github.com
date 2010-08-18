@@ -99,3 +99,9 @@ My limitations are,
 If you bump into a limitation, bug, annoyance not listed here, feel free
 let me know about it at
 <http://github.com/adamschmideg/lambdebug/issues>.
+
+# Inspiration
+
+I was inspired by
+[Complete Tracing](http://wave.thewe.net/2009/12/17/logging-and-debugging-in-clojure-followup-complete-tracing/)
+and by the way [NewLISP](http://www.newlisp.org/) can be debugged.
