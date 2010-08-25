@@ -105,3 +105,11 @@ let me know about it at
 I was inspired by
 [Complete Tracing](http://wave.thewe.net/2009/12/17/logging-and-debugging-in-clojure-followup-complete-tracing/)
 and by the way [NewLISP](http://www.newlisp.org/) can be debugged.
+
+# Most recent blog posts
+
+<ul class="posts">
+  {% for post in site.posts limit:5 %}
+    <li><span>{{ post.date | date_to_string }}</span> &#187; <a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
