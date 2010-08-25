@@ -20,7 +20,8 @@ I want to see everything in a context at once.  Most debuggers display
 the value of variables in the current context.  To display values of
 nested expressions, they would need a time-machine, either to remember
 expressions already evaluated, or to foresee an expression to be
-evaluated.  Let me give an example,
+evaluated.  Let me give an example in Clojure, the idea is supposed to
+work for also other languages, though.
 
 <div class='repl'><code>
 <span style='color:red'>(if</span><br>
