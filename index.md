@@ -106,6 +106,10 @@ I was inspired by
 [Complete Tracing](http://wave.thewe.net/2009/12/17/logging-and-debugging-in-clojure-followup-complete-tracing/)
 and by the way [NewLISP](http://www.newlisp.org/) can be debugged.
 
+# Do you want more?
+
+Check out [details](/details).
+
 # Most recent blog posts
 
 <ul class="posts">
